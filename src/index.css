@@ -1,13 +1,71 @@
-body {
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+.App{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+.App__left{
+  flex: 2;
+}
+.App__right{
+  flex: 1;
+  min-width: 300px;
+}
+.header{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px;
+}
+.header__title{
+  color:rgb(233, 73, 73);
+}
+.infoBox__container{
+  display: flex;
+  justify-content: space-around;
+}
+.infoBox__danger{
+  color: rgb(233, 73, 73);;
+}
+.infoBox__info{
+  color: rgb(49, 173, 49);
+}
+.infoBox__element{
+  cursor: pointer;
+  
+}
+.infoBox__element__selected{
+  border-top: 8px solid rgb(233, 73, 73);
+  border-radius: 10px;
+  transition: all ease-in 200ms;
+}
+.table{
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  height: 300px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.table__country img{
+  margin: 0 5px;
+
+}
+.table > tr:nth-of-type(odd){
+  background-color: rgb(229, 226, 226);
+}
+strong{
+  color: rgb(77, 74, 74);
+}
+.table > tr {
+  display: flex;
+  justify-content: space-between;
+}
+.chart{
+  height: 250px;
+  display: flex;
+  margin-top: 25px;
 }
