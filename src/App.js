@@ -75,7 +75,8 @@ function App() {
     </div>
       <Card className="App__right">
         <CardContent>
-          <TableCases countries={countries}/>
+          <h2 className="table__title">Live Cases by Country</h2>
+          <TableCases countries={[...countries]}/>
           <ChartInfo casesType={casesType}/>
         </CardContent>
       </Card>

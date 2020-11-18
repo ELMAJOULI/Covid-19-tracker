@@ -1,7 +1,7 @@
 import React from 'react'
 
-const TableCases = ({countries}) => {
-     countries.sort((a,b) =>   b.cases - a.cases);
+const TableCases = ({countries}) => { 
+    countries.sort((a,b) =>   b.cases - a.cases);
     return (
         <div className="table" >
             {countries.map( ({country,cases,countryInfo}) =>

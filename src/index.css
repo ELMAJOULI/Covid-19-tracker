@@ -2,11 +2,16 @@
   margin: 0;
   box-sizing: border-box;
 }
+body{
+  width: 100vw;
+  overflow: hidden;
+}
 .App{
   display: flex;
   justify-content: space-between;
+  align-content: center;
   flex-wrap: wrap;
-  padding: 30px;
+  margin: 30px;
 }
 .App__left{
   flex: 2;
@@ -24,9 +29,14 @@
 .header__title{
   color:rgb(233, 73, 73);
 }
+.header__select{
+  display: flex;
+  width: 180px;
+}
 .infoBox__container{
   display: flex;
   justify-content: space-around;
+  margin-bottom: 20px;
 }
 .infoBox__danger{
   color: rgb(233, 73, 73);;
@@ -36,10 +46,11 @@
 }
 .infoBox__element{
   cursor: pointer;
-  
+  margin: 5px;
 }
 .infoBox__element__selected{
-  border-top: 8px solid rgb(233, 73, 73);
+  box-shadow:  0px -8px 0px rgb(233, 73, 73) ;
+  transform: scale(1.1);
   border-radius: 10px;
   transition: all ease-in 200ms;
 }
@@ -49,7 +60,12 @@
   overflow: auto;
   height: 300px;
 }
+.table__title{
+  margin-bottom: 5px;
+  color: rgb(95, 93, 93);
+  font-size: 18px;
 
+}
 .table__country img{
   margin: 0 5px;
 
