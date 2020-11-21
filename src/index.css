@@ -20,6 +20,7 @@
 .App__right{
   flex: 1;
   min-width: 300px;
+  margin-top: 30px;
 }
 .loading{
   width: 100%;
