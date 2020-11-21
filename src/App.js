@@ -16,7 +16,7 @@ function App() {
   const [zoom,setZoom] = useState(2);
   useEffect(async()=>{
    const url = selectedCountry ==="all"? "https://disease.sh/v3/covid-19/all" :`https://disease.sh/v3/covid-19/countries/${selectedCountry}`;
-    
+    console.log(selectedCountry)
    const INFO = await fetch(url).then(r=> r.json());
    setCovidInfo(INFO);
     if(selectedCountry == "all") {
@@ -93,7 +93,7 @@ function App() {
       <Card className="App__right">
         <CardContent>
           <h2 className="table__title">Live Cases by Country</h2>
-          <TableCases countries={[...countries]}/>
+          <TableCases countries={[...countries]} onSelect={setSelectedCountry}/>
           <ChartInfo casesType={casesType}/>
         </CardContent>
       </Card>
