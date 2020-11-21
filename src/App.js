@@ -1,22 +1,34 @@
 import { Card,CardContent, FormControl,Select,MenuItem} from "@material-ui/core";
 import React, {useEffect, useState} from "react";
 import InfoBox from "./Components/InfoBox";
-//import {useFetchURL} from "./Tools/useFetchURL";
 import TableCases from "./Components/TableCases";
 import ChartInfo from "./Components/ChartInfo";
 import numeral from "numeral";
+import {BounceLoader} from "react-spinners";
+import GoogleMaps from "./Components/GoogleMaps";
 function App() {
   const [selectedCountry,setSelectedCountry] = useState("all");
   const [countries,setCountries] = useState([]);
   const [covidInfo,setCovidInfo] = useState(null);
-   const [casesType,setCasesType] = useState("cases")
+  const [casesType,setCasesType] = useState("cases")
+  const [center,setCenter] = useState({lat : 33.054281,lng : -28.448454});
+
+  const [zoom,setZoom] = useState(2);
   useEffect(async()=>{
    const url = selectedCountry ==="all"? "https://disease.sh/v3/covid-19/all" :`https://disease.sh/v3/covid-19/countries/${selectedCountry}`;
     
    const INFO = await fetch(url).then(r=> r.json());
    setCovidInfo(INFO);
+    if(selectedCountry == "all") {
+      setCenter({lat : 33.054281,lng : -28.448454})
+      setZoom(2);
+    }  
+    else {
+      setCenter({lat : INFO.countryInfo.lat, lng : INFO.countryInfo.long});
+      setZoom(4);
+    }
    console.log(covidInfo);
-   console.log(countries);
+   console.log(center);
 
   }
   ,[selectedCountry]);
@@ -70,8 +82,13 @@ function App() {
        
 
       <InfoBox onInfoClick={onInfoClick} title={"Coronavirus Death"} currentCasesType={casesType} cassesType={"deaths"} danger total={numeral(covidInfo.deaths).format("0.0a")} casses={numeral(covidInfo.todayDeaths).format("0.0a")}/>
-      
+    
       </div>
+      <Card className="map">
+        <CardContent className="map__content">
+         <GoogleMaps center={center}  countries={countries} zoom={zoom} casesType={casesType}/>
+        </CardContent>
+      </Card>
     </div>
       <Card className="App__right">
         <CardContent>
@@ -85,7 +102,8 @@ function App() {
     :
     
     (<div className="loading">
-    <h3>Loading ...</h3>
+    <BounceLoader color="rgb(233, 73, 73)" size={80} />
+    <h2 className="loading__title">Loading...</h2>
 </div>)
   );
 }

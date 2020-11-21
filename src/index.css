@@ -12,10 +12,25 @@
 }
 .App__left{
   flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
 }
 .App__right{
   flex: 1;
   min-width: 300px;
+}
+.loading{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loading__title{
+  color: rgb(233, 73, 73);
 }
 .header{
   display: flex;
@@ -81,4 +96,11 @@ strong{
   height: 250px;
   display: flex;
   margin-top: 25px;
+}
+.map{
+  margin-right:15px ;
+}
+.map__content{
+  width: 100%;
+  height: 400px;
 }
