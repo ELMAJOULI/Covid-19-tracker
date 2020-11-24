@@ -56,7 +56,7 @@ const GoogleMaps = ({center,zoom,countries,casesType}) => {
   },[casesType])
     return (
         <LoadScript
-        googleMapsApiKey='AIzaSyAZ-13UoFkFWiYqBWIO3Lstfh8cxwqKlRM'>
+        googleMapsApiKey='AIzaSyBOVKnp4vIXQHLkFrNxTHhI_SDMRh3ShjU'>
          <GoogleMap
            mapContainerStyle={mapStyles}
            zoom={zoom}
